@@ -6,16 +6,22 @@
 <templates xml:space="preserve">
     <!-- Extend the attachment preview template to add ONLYOFFICE edit button -->
     <t t-inherit="web.Many2ManyBinaryField.attachment_preview" t-inherit-mode="extension">
-        <!-- Add ONLYOFFICE edit button in the aside section before the delete button -->
-        <xpath expr="//aside/i[hasclass('fa-times')]" position="before">
-            <i
-                t-if="editable and onlyofficeCanOpen(file)"
-                class="fa fa-pencil o_attachment_onlyoffice me-2"
+        <!-- Add ONLYOFFICE edit button before the delete button -->
+        <xpath expr="//div[hasclass('o_attachment_delete')]" position="before">
+            <div 
+                t-if="editable and onlyofficeCanOpen(file)" 
+                class="o_attachment_onlyoffice"
                 t-on-click.stop="() => this.openOnlyoffice(file)"
-                title="Edit in ONLYOFFICE"
-                role="img"
-                aria-label="Edit in ONLYOFFICE"
-            />
+                style="position: absolute; top: 2px; right: 24px; cursor: pointer; z-index: 1;"
+            >
+                <i 
+                    class="fa fa-pencil text-white" 
+                    role="img" 
+                    aria-label="Edit in ONLYOFFICE" 
+                    title="Edit in ONLYOFFICE"
+                    style="font-size: 12px;"
+                />
+            </div>
         </xpath>
     </t>
 </templates>
