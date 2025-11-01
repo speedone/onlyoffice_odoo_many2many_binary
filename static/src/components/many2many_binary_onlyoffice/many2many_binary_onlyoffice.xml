@@ -6,20 +6,20 @@
 <templates xml:space="preserve">
     <!-- Extend the attachment preview template to add ONLYOFFICE edit button -->
     <t t-inherit="web.Many2ManyBinaryField.attachment_preview" t-inherit-mode="extension">
-        <!-- Add ONLYOFFICE edit button in the caption area, after the filename link -->
-        <xpath expr="//div[hasclass('caption')]/a[1]" position="after">
+        <!-- Add ONLYOFFICE edit button next to download icon -->
+        <xpath expr="//div[@class='o_image_box float-start']" position="after">
             <a 
                 t-if="editable and onlyofficeCanOpen(file)"
                 href="#"
                 class="o_attachment_onlyoffice"
                 t-on-click.prevent="() => this.openOnlyoffice(file)"
                 t-att-data-tooltip="'Edit in ONLYOFFICE'"
-                style="margin-left: 6px; display: inline-block; vertical-align: middle;"
+                style="display: inline-block; margin-left: 4px; vertical-align: top; margin-top: 2px;"
             >
                 <img 
                     src="/onlyoffice_odoo/static/svg/edit.svg"
                     alt="Edit in ONLYOFFICE"
-                    style="width: 14px; height: 14px; vertical-align: middle;"
+                    style="width: 16px; height: 16px;"
                 />
             </a>
         </xpath>
