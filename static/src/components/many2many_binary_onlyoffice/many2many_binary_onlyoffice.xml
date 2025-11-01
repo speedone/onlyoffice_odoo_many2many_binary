@@ -12,7 +12,7 @@
                 t-if="editable and onlyofficeCanOpen(file)" 
                 class="o_attachment_onlyoffice"
                 t-on-click.stop="() => this.openOnlyoffice(file)"
-                style="position: absolute; top: 2px; right: 24px; cursor: pointer; z-index: 1;"
+                style="position: absolute; top: 2px; right: 30px; cursor: pointer; z-index: 2;"
             >
                 <i 
                     class="fa fa-pencil text-white" 
